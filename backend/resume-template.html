@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{fullName}} - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .job, .education {
+            margin-bottom: 15px;
+        }
+        .job-title, .degree {
+            font-weight: bold;
+        }
+        .company, .institution {
+            font-style: italic;
+        }
+        .dates {
+            color: #7f8c8d;
+        }
+        .skills {
+            list-style-type: none;
+            padding: 0;
+        }
+        .skills li {
+            display: inline-block;
+            background-color: #ecf0f1;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{fullName}}</h1>
+        <p>{{email}} | {{phone}} | {{location}}</p>
+    </header>
+
+    <section class="section">
+        <h2>Work Experience</h2>
+        {{#each workExperience}}
+        <div class="job">
+            <p class="job-title">{{jobTitle}}</p>
+            <p class="company">{{company}}</p>
+            <p class="dates">{{startDate}} - {{endDate}}</p>
+            <p>{{jobDescription}}</p>
+        </div>
+        {{/each}}
+    </section>
+
+    <section class="section">
+        <h2>Education</h2>
+        {{#each education}}
+        <div class="education">
+            <p class="degree">{{degree}}</p>
+            <p class="institution">{{institution}}</p>
+            <p class="dates">Graduation Year: {{graduationYear}}</p>
+        </div>
+        {{/each}}
+    </section>
+
+    <section class="section">
+        <h2>Skills</h2>
+        <ul class="skills">
+            {{#each skills}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </section>
+</body>
+</html>
